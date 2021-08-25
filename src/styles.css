@@ -1,0 +1,79 @@
+:root {
+  --header-height: 10vh;
+  --padding: 0.5rem;
+  --margin: 0.5rem;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: monospace;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left :0;
+  right: 0;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: georgia;
+  background-color: grey;
+  padding: 0 var(--padding);
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav__links {
+  font-size: 1.5rem;
+  padding: var(--padding);
+}
+.nav__links__text {
+  position: absolute;
+  visibility: hidden;
+}
+
+.banner {
+  background-color: green;
+  height: 40vh;
+  font-size: 5rem;
+}
+
+.products {
+  margin: var(--margin);
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: var(--padding);
+  margin: var(--margin);
+  width: 37vw;
+}
+
+/* <<< General Styles >>> */
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav__links__text {
+    position: static;
+    visibility: visible;
+  }
+}
