@@ -44,6 +44,44 @@ export const storeReducer = (state, action) => {
           (product) => product.id !== action.payload.id
         ),
       };
+    case "INCREASE_QUANTITY":
+      return {
+        ...state,
+        cart: state.cart.map((product) =>
+          product.id === action.payload.id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product
+        ),
+      };
+    case "DECREASE_QUANTITY":
+      return {
+        ...state,
+        cart: state.cart.map((product) =>
+          product.id === action.payload.id
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        ),
+      };
+      case "SORT": 
+      return {
+        ...state, 
+        sortBy: action.payload
+      }
+      case "TOGGLE_INVENTORY": 
+      return {
+        ...state, 
+        showInventoryAll: !state.showInventoryAll
+      }
+      case "TOGGLE_DELIVERY": 
+      return {
+        ...state, 
+        showFastDeliveryOnly: !state.showFastDeliveryOnly
+      }
+      case "PRICE_RANGE":
+        return {
+          ...state,
+          priceRange: action.payload
+        }
     default:
       return state;
   }

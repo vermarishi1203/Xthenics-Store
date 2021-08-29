@@ -7,7 +7,19 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const wishList = [];
   const cart = [];
-  const [state, dispatch] = useReducer(storeReducer, { data, cart, wishList });
+  const sortBy = null;
+  const showInventoryAll = true;
+  const showFastDeliveryOnly = false;
+  const priceRange = 1000;
+  const [state, dispatch] = useReducer(storeReducer, {
+    data,
+    cart,
+    wishList,
+    sortBy,
+    showInventoryAll,
+    showFastDeliveryOnly,
+    priceRange,
+  });
   return (
     <CartContext.Provider value={{ state, dispatch }}>
       {children}

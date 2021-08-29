@@ -11,6 +11,12 @@ export const WishList = () => {
             <img src={product.image} alt="" />
             <p>{product.name}</p>
             <p>Rs. {product.price}</p>
+            {product.inStock ? <p>Available</p> : <p>Out of Stock</p>}
+            {product.fastDelivery ? (
+              <p>Fast Delivery</p>
+            ) : (
+              <p>Minimum 5 days required</p>
+            )}
             <button
               onClick={() =>
                 wishListDispatch({ type: "MOVE_TO_CART", payload: product })

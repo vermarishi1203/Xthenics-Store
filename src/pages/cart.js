@@ -11,6 +11,18 @@ export const Cart = () => {
             <img src={product.image} alt="" />
             <p>{product.name}</p>
             <p>Rs. {product.price}</p>
+            {product.inStock ? <p>Available</p> : <p>Out of Stock</p>}
+            {product.fastDelivery ? (
+              <p>Fast Delivery</p>
+            ) : (
+              <p>Minimum 5 days required</p>
+            )}
+            <p>
+              Quantity: <button disabled={product.quantity === 1? true: false} onClick={()=> cartDispatch({type: "DECREASE_QUANTITY", payload: product})}>-</button>{" "}
+              <span>{product.quantity}</span>
+              {" "}
+              <button onClick={()=> cartDispatch({type: "INCREASE_QUANTITY", payload: product})}>+</button>
+            </p>
             <button
               onClick={() =>
                 cartDispatch({ type: "MOVE_TO_WISHLIST", payload: product })
@@ -28,6 +40,10 @@ export const Cart = () => {
           </li>
         ))}
       </ul>
+      <section>
+        <h1>Price Details:</h1>
+        
+      </section>
     </section>
   );
 };

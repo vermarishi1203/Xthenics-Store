@@ -2,6 +2,7 @@
   --header-height: 10vh;
   --padding: 0.5rem;
   --margin: 0.5rem;
+  --transition-duration: 600ms;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
 .header {
   position: fixed;
   top: 0;
-  left :0;
+  left: 0;
   right: 0;
   height: var(--header-height);
   display: flex;
@@ -31,10 +32,88 @@ body {
 .nav__links {
   font-size: 1.5rem;
   padding: var(--padding);
+  background-color: transparent;
+  border: none;
 }
 .nav__links__text {
   position: absolute;
   visibility: hidden;
+}
+
+.header__icon {
+  position: relative;
+}
+
+.icon-badge {
+  position: absolute;
+  top: -0.6rem;
+  right: -0.6rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.hamburger--closed {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: white;
+  height: 100vh;
+  width: 50vw;
+  align-items: flex-start;
+  padding: 2rem var(--padding);
+  z-index: 2;
+  transform: translateX(60vw) ;
+  transition: transform 0.5sec;
+}
+.hamburger--open {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: white;
+  height: 100vh;
+  width: 50vw;
+  align-items: flex-start;
+  padding: 2rem var(--padding);
+  z-index: 2;
+  transform: translateX(0) ;
+  transition: transform --transition-duration;
+}
+
+.hamburger .nav__links {
+  margin: var(--margin);
+}
+
+.overlay--closed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: hsla(0, 0%, 30%, 10%);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+  visibility: hidden;
+}
+.overlay--open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: hsla(0, 0%, 30%, 10%);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+  visibility: visible;
 }
 
 .banner {
